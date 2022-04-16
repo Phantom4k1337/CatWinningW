@@ -81,15 +81,6 @@ local ThemeManager = {} do
 		groupbox:AddLabel('Accent color'):AddColorPicker('AccentColor', { Default = self.Library.AccentColor });
 		groupbox:AddLabel('Outline color'):AddColorPicker('OutlineColor', { Default = self.Library.OutlineColor });
 		groupbox:AddLabel('Font color')	:AddColorPicker('FontColor', { Default = self.Library.FontColor });
-    groupbox:AddButton('Set Default Theme', function()
-    Options.FontColor:SetValueRGB(Color3.fromRGB(255, 255, 255));
-    Options.MainColor:SetValueRGB(Color3.fromRGB(28, 28, 28));
-    Options.BackgroundColor:SetValueRGB(Color3.fromRGB(20, 20, 20));
-    Options.AccentColor:SetValueRGB(Color3.fromRGB(0, 85, 255));
-    Options.OutlineColor:SetValueRGB(Color3.fromRGB(50, 50, 50));
-        
-        ThemeUpdate()
-		end)
 		local ThemesArray = {}
 		for Name, Theme in next, self.BuiltInThemes do
 			table.insert(ThemesArray, Name)
@@ -143,7 +134,15 @@ local ThemeManager = {} do
 		local function UpdateTheme()
 			self:ThemeUpdate()
 		end
-
+    groupbox:AddButton('Set Default Theme', function()
+    Options.FontColor:SetValueRGB(Color3.fromRGB(255, 255, 255));
+    Options.MainColor:SetValueRGB(Color3.fromRGB(28, 28, 28));
+    Options.BackgroundColor:SetValueRGB(Color3.fromRGB(20, 20, 20));
+    Options.AccentColor:SetValueRGB(Color3.fromRGB(0, 85, 255));
+    Options.OutlineColor:SetValueRGB(Color3.fromRGB(50, 50, 50));
+        
+        ThemeUpdate()
+		end)
 		Options.BackgroundColor:OnChanged(UpdateTheme)
 		Options.MainColor:OnChanged(UpdateTheme)
 		Options.AccentColor:OnChanged(UpdateTheme)
