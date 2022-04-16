@@ -141,7 +141,7 @@ local ThemeManager = {} do
     Options.AccentColor:SetValueRGB(Color3.fromRGB(0, 85, 255));
     Options.OutlineColor:SetValueRGB(Color3.fromRGB(50, 50, 50));
         
-        ThemeUpdate()
+        UpdateTheme()
 		end)
 		Options.BackgroundColor:OnChanged(UpdateTheme)
 		Options.MainColor:OnChanged(UpdateTheme)
