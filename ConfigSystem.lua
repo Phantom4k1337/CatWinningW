@@ -216,7 +216,16 @@ local SaveManager = {} do
 
 			self.Library:Notify(string.format('Loaded config %q', name))
 		end)
+		section:AddButton('Save config', function()
+			local name = Options.SaveManager_ConfigList.Value
 
+			local success, err = self:Save(name)
+			if not success then
+				return self.Library:Notify('Failed to save config: ' .. err)
+			end
+
+			self.Library:Notify(string.format('Saved config %q', name))
+		end)
 		section:AddButton('Overwrite config', function()
 			local name = Options.SaveManager_ConfigList.Value
 
