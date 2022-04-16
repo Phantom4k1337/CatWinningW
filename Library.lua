@@ -7,10 +7,8 @@ local RenderStepped = RunService.RenderStepped;
 local LocalPlayer = game:GetService('Players').LocalPlayer;
 local Mouse = LocalPlayer:GetMouse();
 
-local ProtectGui = protectgui or (syn and syn.protect_gui) or (function() end);
-
 local ScreenGui = Instance.new('ScreenGui');
-ProtectGui(ScreenGui);
+
 
 ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Global;
 ScreenGui.Parent = CoreGui;
@@ -2119,6 +2117,7 @@ do
     });
 
     local WatermarkOuter = Library:Create('Frame', {
+        Name = 'Watermark';
         BorderColor3 = Color3.new(0, 0, 0);
         Position = UDim2.new(0, 100, 0, -25);
         Size = UDim2.new(0, 213, 0, 20);
@@ -2183,6 +2182,7 @@ do
 
 
     local KeybindOuter = Library:Create('Frame', {
+        Name = 'KeybindList'
         AnchorPoint = Vector2.new(0, 0.5);
         BorderColor3 = Color3.new(0, 0, 0);
         Position = UDim2.new(0, 10, 0.5, 0);
@@ -2252,7 +2252,7 @@ do
     Library:MakeDraggable(KeybindOuter);
     
         local SpectatorOuter = Library:Create('Frame', {
-        Name = 'SpecList';
+        Name = 'SpectatorList';
         AnchorPoint = Vector2.new(0, 0.5);
         BorderColor3 = Color3.new(0, 0, 0);
         Position = UDim2.new(0, 10, 0.35, 0);
@@ -2443,6 +2443,7 @@ function Library:CreateWindow(...)
     };
 
     local Outer = Library:Create('Frame', {
+        Name = 'Menu';
         AnchorPoint = Config.AnchorPoint,
         BackgroundColor3 = Color3.new(0, 0, 0);
         BorderSizePixel = 0;
