@@ -2219,7 +2219,7 @@ do
 
     local KeybindLabel = Library:CreateLabel({
         Size = UDim2.new(1, 0, 0, 20);
-        Position = UDim2.fromOffset(5, 2),
+        Position = UDim2.fromOffset(5, 1),
         TextXAlignment = Enum.TextXAlignment.Left,
         
         Text = 'Keybinds';
@@ -2289,7 +2289,7 @@ do
 
     local SpectatorLabel = Library:CreateLabel({
         Size = UDim2.new(1, 0, 0, 20);
-        Position = UDim2.fromOffset(5, 2),
+        Position = UDim2.fromOffset(5, 1),
         TextXAlignment = Enum.TextXAlignment.Left,
             
         Text = 'Spectators';
