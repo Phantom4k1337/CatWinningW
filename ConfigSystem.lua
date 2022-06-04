@@ -53,7 +53,18 @@ local SaveManager = {} do
 					Options[idx]:SetValue({ data.key, data.mode })
 				end
 			end,
-		}
+		},
+
+		Input = {
+			Save = function(idx, object)
+				return { type = 'Input', idx = idx, text = object.Value }
+			end,
+			Load = function(idx, data)
+				if Options[idx] and type(data.text) == 'string' then
+					Options[idx]:SetValue(data.text)
+				end
+			end,
+		},
 	}
 
 	function SaveManager:SetIgnoreIndexes(list)
@@ -182,7 +193,7 @@ local SaveManager = {} do
 	function SaveManager:BuildConfigSection(tab)
 		assert(self.Library, 'Must set SaveManager.Library')
 
-		local section = tab:AddRightGroupbox('Configuration')
+		local section = tab:AddRightGroupbox('Config System')
 
 		section:AddDropdown('SaveManager_ConfigList', { Text = 'Config list', Values = self:RefreshConfigList(), AllowNull = true })
 		section:AddInput('SaveManager_ConfigName',    { Text = 'Config name' })
